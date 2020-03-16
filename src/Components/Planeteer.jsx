@@ -2,20 +2,41 @@ import React from 'react';
 
 class Planeteer extends React.Component {
 
+
+  state = {
+    clicked: false
+  }
+
+  handleClick = () => {
+    console.log("gonna take pollution down to zero")
+ 
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
+
+  handleDeleteClick = () => {
+    this.props.deleteOnePlaneteer(this.props.planeteerFriend.id)
+   
+  }
+
   render() {
+
+    let { name, fromUSA, born, bio, quote, pictureUrl, twitter } = this.props.planeteerFriend
+
     return (
       <li className="cards__item">
         <div className="card">
-          <img src={"RENDER IMAGE"} alt={"RENDER PERSON NAME"} className="card__image" />
+          <img src={pictureUrl} alt={name} className="card__image" />
           <div className="card__content">
-            <div className="card__title">{"RENDER NAME"}</div>
-            <p className="card__text">{"CONDITIONALLY RENDER BIO OR QUOTE"}</p>
+            <div className="card__title">{name}</div>
+            <p className="card__text" onClick={this.handleClick}>{this.state.clicked ? quote : bio}</p>
             <div className="card__detail">
-              <p>{"RENDER TWITTER HANDLE"}</p>
-              <p>Age: {"RENDER THE AGE OF THE PERSON"}</p>
-              <p>{"CONDITIONALLY RENDER WHETHER THE PERSON IS USA-BASED OR WORKING OVERSEAS"}</p>
+              <p>{twitter}</p>
+              <p>Age: {(new Date().getFullYear()) - born}</p>
+              <p>{fromUSA ? "USA-based" : "Working Overseas"}</p>
             </div>
-            {/* DELIVERABLE 5 */}
+            <button onClick={this.handleDeleteClick}>Delete Planeteer {name}</button>
           </div>
         </div>
       </li>

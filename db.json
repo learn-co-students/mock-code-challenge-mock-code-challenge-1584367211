@@ -1,25 +1,5 @@
 {
-  "planeteers":[
-    {
-      "id": 1,
-      "name": "Xiuhtezcatl Martinez",
-      "fromUSA": true,
-      "born": 2000,
-      "bio": "While Xiuhtezcatl started speaking about the environment at just age 6, he is now a 19-year-old indigenous activist, musician, and the youth director of Earth Guardians, an organization that trains youth across the world to use civic engagement and the arts to help solve environmental issues. As a hip-hop artist, Xiuhtezcatl also often uses music to convey powerful environmental messages. He is also not afraid to confront the government head-on, as he was one of the 21 plaintiffs that sued the federal government for their lack of action on climate change.",
-      "quote": "My father taught me to see the magic in everything. Growing up, magic was in the sunrise and the rainfall. In every expression of life, no matter how small. I think that that was one of the most valuable wisdom that shaped who I was as a young boy. It gave me the perspective to see what was behind the dysfunction of our society, of our broken world, our dying ecosystems and corrupt leaders.",
-      "pictureUrl": "https://160g7a3snajg2i1r662yjd5r-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/XMartinez.gif",
-      "twitter": "@xiuhtezcatl"
-    },
-    {
-      "id": 2,
-      "name": "Vic Barrett",
-      "fromUSA": true,
-      "born": 2000,
-      "bio": "Vic is from low-lying land in New York and has felt firsthand climate impacts in the form of Hurricane Sandy. Vic is a Fellow with the Alliance for Climate Education, spoke at the COP21 U.N. Conference on Climate Change and spoke at the U.N. headquarters in New York City. After marching in solidarity with more than 400,000 people at the People’s Climate March in New York City, he organized his peers in local frontline climate campaigns. Vic is now an undergraduate student at UW-Madison and is also among 21 youth activists who are actively suing the government to take action on climate change.",
-      "quote": "The journey of looking at myself and my identity… made it clear to me that something had to be done. How could you not when people are dying?",
-      "pictureUrl": "https://160g7a3snajg2i1r662yjd5r-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/vic.jpg",
-      "twitter": "@vict_barrett"
-    },
+  "planeteers": [
     {
       "id": 3,
       "name": "Xiye Bastida",
@@ -71,7 +51,7 @@
       "twitter": " "
     },
     {
-      "id":8,
+      "id": 8,
       "name": "Alexandria Villaseñor",
       "fromUSA": true,
       "born": 2005,
