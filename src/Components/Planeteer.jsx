@@ -2,6 +2,11 @@ import React from 'react';
 
 class Planeteer extends React.Component {
 
+  // onClick function
+  handleDelete = (e) => {
+    this.props.deletePlaneteer(this.props.planeteer.id)
+  }
+
 
   render() {
     let { name, born, bio, fromUSA, quote, pictureUrl, twitter } = this.props.planeteer
@@ -17,7 +22,7 @@ class Planeteer extends React.Component {
               <p>Age: { (new Date().getFullYear() - born) }</p>
               <p>{ fromUSA ? "USA-based" : "Working Overseas" }</p>
             </div>
-            <button>x</button>
+            <button onClick={this.handleDelete} >x</button>
           </div>
         </div>
       </li>
