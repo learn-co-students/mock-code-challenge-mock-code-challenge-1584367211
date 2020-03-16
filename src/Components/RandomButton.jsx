@@ -43,13 +43,8 @@ const arrayOfPlaneteers = [
 class RandomButton extends React.Component {
 
   handleClick = () => {
-    let randomPlaneteer = arrayOfPlaneteers[Math.floor(Math.random() * arrayOfPlaneteers.length)]
-
-    let newRandomPlaneteer = { // created a new object w/ id, for the "key" value to persist when in container when I POST, to delete by later.
-      ...randomPlaneteer,
-      id: Math.floor(Math.random() * 1000)
-    }
-    return this.props.addPlaneteer(newRandomPlaneteer);
+    const randomPlaneteer = arrayOfPlaneteers[Math.floor(Math.random() * arrayOfPlaneteers.length)]
+    return this.props.addPlaneteer(randomPlaneteer);
   }
 
   render() {
