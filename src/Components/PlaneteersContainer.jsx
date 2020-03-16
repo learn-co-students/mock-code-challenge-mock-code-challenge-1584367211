@@ -1,13 +1,17 @@
 import React from 'react';
 import Planeteer from './Planeteer'
 
-const PlaneteersContainer = () => {
-
+const PlaneteersContainer = (props) => {
+  console.log(props.hippys);
+  
   return (
     <ul className="cards">
-      {
-        "Render Planeteers here"
+      {props.hippys.map((oneTreeHugger)=>{
+        return <Planeteer key={oneTreeHugger.id} 
+        ikeepMyplasticsAndCompostablesTogether={oneTreeHugger}/>
       }
+    )
+  }
     </ul>
   )
 
