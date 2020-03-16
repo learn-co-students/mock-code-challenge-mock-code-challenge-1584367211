@@ -1,13 +1,14 @@
 import React from 'react';
 import Planeteer from './Planeteer'
 
-const PlaneteersContainer = () => {
-
+const PlaneteersContainer = (props) => {
+  // console.log(planet);
+  let renderPlaneters = props.planet.map((onePlanet) => {
+    return <Planeteer key={onePlanet.id} planet={onePlanet}/>
+  })
   return (
     <ul className="cards">
-      {
-        "Render Planeteers here"
-      }
+     {renderPlaneters}
     </ul>
   )
 
