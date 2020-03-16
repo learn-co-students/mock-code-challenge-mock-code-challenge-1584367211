@@ -12,6 +12,10 @@ class Planeteer extends React.Component {
     })
   }
 
+  handleDelete = () => {
+    this.props.deleteOnePlaneteer(this.props.planeteerObject.id)
+  }
+
   render() {
 
     let {name, born, bio, quote, pictureUrl, twitter, fromUSA} = this.props.planeteerObject
@@ -30,7 +34,7 @@ class Planeteer extends React.Component {
               <p>Age: {currentYear - born}</p>
               <p>{fromUSA? "USA-based" : "Working Overseas"}</p>
             </div>
-            {/* DELIVERABLE 5 */}
+            <button onClick={this.handleDelete}>Remove</button>
           </div>
         </div>
       </li>

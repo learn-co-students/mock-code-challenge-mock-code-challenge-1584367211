@@ -30,22 +30,46 @@ class App extends React.Component {
   }
 
   renderPlaneteers = () => {
-    let filterByName = this.state.planeteers.filter(planeteerObject => {
+    let filterByNameOrBio = this.state.planeteers.filter(planeteerObject => {
       return planeteerObject.name.toLowerCase().includes(this.state.filterTerm.toLowerCase()) || planeteerObject.bio.toLowerCase().includes(this.state.filterTerm.toLowerCase()) 
     })
-    return filterByName
+    return filterByNameOrBio
   }
 
   addNewPlaneteer = (newPlaneteer) => {
-    let newPlaneteerObject = {
-      ...newPlaneteer,
-      id: 20
-    }
-    let newArray = [...this.state.planeteers, newPlaneteerObject]
-    this.setState({
-      planeteers: newArray
+    
+    fetch("http://localhost:4000/planeteers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newPlaneteer)
+    })
+      .then(response => response.json())
+      .then(result => {
+        let newArray = [...this.state.planeteers, result]
+        this.setState({
+          planeteers: newArray
+        })
+      })
+
+  }
+
+  deleteOnePlaneteer = (planeteerID) => {
+    fetch(`http://localhost:4000/planteers/${planeteerID}`, {
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(() => {
+      let newArray = this.state.planeteers.filter(planeteer => {
+        return planeteer.id !== planeteerID
+      })
+      this.setState({
+        planeteers: newArray
+      })
     })
   }
+
   
   render(){
 
@@ -57,7 +81,10 @@ class App extends React.Component {
           handleFilterTerm={this.handleFilterTerm}
         />
         <RandomButton addNewPlaneteer={this.addNewPlaneteer}/>
-        <PlaneteersContainer planeteers={this.renderPlaneteers()}/>
+        <PlaneteersContainer 
+          planeteers={this.renderPlaneteers()} 
+          deleteOnePlaneteer={this.deleteOnePlaneteer}
+        />
       </div>
     );
   }
