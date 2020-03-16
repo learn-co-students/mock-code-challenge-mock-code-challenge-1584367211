@@ -15,9 +15,14 @@ class Planeteer extends React.Component {
     })
   }
 
+  handleDeleteClick = () => {
+    this.props.deleteOnePlaneteer(this.props.planeteerFriend.id)
+   
+  }
+
   render() {
 
-    let {id, name, fromUSA, born, bio, quote, pictureUrl, twitter } = this.props.planeteerFriend
+    let { name, fromUSA, born, bio, quote, pictureUrl, twitter } = this.props.planeteerFriend
 
     return (
       <li className="cards__item">
@@ -31,7 +36,7 @@ class Planeteer extends React.Component {
               <p>Age: {(new Date().getFullYear()) - born}</p>
               <p>{fromUSA ? "USA-based" : "Working Overseas"}</p>
             </div>
-            {/* DELIVERABLE 5 */}
+            <button onClick={this.handleDeleteClick}>Delete Planeteer {name}</button>
           </div>
         </div>
       </li>

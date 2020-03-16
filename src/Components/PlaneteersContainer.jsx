@@ -7,7 +7,7 @@ const PlaneteersContainer = (props) => {
       return <Planeteer 
                 key = {planeteer.id}
                 planeteerFriend = {planeteer}
-
+                deleteOnePlaneteer = {props.deleteOnePlaneteer}
               />
   })
 
