@@ -47,11 +47,20 @@ class App extends React.Component {
   }
 
   //add planeteer?
-  addPlaneteer = (newPlaneteer) => {
-    let newArray = [...this.state.planeteers, newPlaneteer]
-
-    this.setState({
-      planeteers: newArray
+  addPlaneteer = (newPlaneteerObj) => {
+    fetch(API, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(newPlaneteerObj)
+    })
+    .then(r => r.json())
+    .then((newPlaneteer) => {
+      let newArray = [newPlaneteer, ...this.state.planeteers]
+      this.setState({
+        planeteers: newArray
+      })
     })
   }
 
