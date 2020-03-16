@@ -56,7 +56,7 @@ class App extends React.Component {
   }
 
   deleteOnePlaneteer = (planeteerID) => {
-    fetch(`http://localhost:4000/planteers/${planeteerID}`, {
+    fetch(`http://localhost:4000/planeteers/${planeteerID}`, {
       method: "DELETE"
     })
     .then(response => response.json())
