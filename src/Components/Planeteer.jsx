@@ -7,15 +7,9 @@ class Planeteer extends React.Component {
   }
 
   handleClick = (e) => {
-    let { clicked } = this.state
-    !clicked ? 
     this.setState({
-      clicked: true
-     }) 
-     : 
-     this.setState({
-       clicked: false
-     })
+      clicked: !this.state.clicked
+    })
   }
 
   // onClick function
@@ -32,7 +26,7 @@ class Planeteer extends React.Component {
           <img src={ pictureUrl } alt={ name } className="card__image" onClick={this.handleClick} />
           <div className="card__content">
             <div className="card__title">{ name }</div>
-            <p className="card__text">{ !this.state.clicked? bio : quote }</p>
+            <p className="card__text">{ this.state.clicked ? quote : bio }</p>
             <div className="card__detail">
               <p>{ twitter }</p>
               <p>Age: { (new Date().getFullYear() - born) }</p>
