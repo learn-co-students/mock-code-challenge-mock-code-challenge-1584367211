@@ -2,6 +2,22 @@ import React from 'react';
 
 class Planeteer extends React.Component {
 
+  state = {
+    clicked: false
+  }
+
+  handleClick = (e) => {
+    let { clicked } = this.state
+    !clicked ? 
+    this.setState({
+      clicked: true
+     }) 
+     : 
+     this.setState({
+       clicked: false
+     })
+  }
+
   // onClick function
   handleDelete = (e) => {
     this.props.deletePlaneteer(this.props.planeteer.id)
@@ -13,10 +29,10 @@ class Planeteer extends React.Component {
     return (
       <li className="cards__item">
         <div className="card">
-          <img src={ pictureUrl } alt={ name } className="card__image" />
+          <img src={ pictureUrl } alt={ name } className="card__image" onClick={this.handleClick} />
           <div className="card__content">
             <div className="card__title">{ name }</div>
-            <p className="card__text">{ bio }</p>
+            <p className="card__text">{ !this.state.clicked? bio : quote }</p>
             <div className="card__detail">
               <p>{ twitter }</p>
               <p>Age: { (new Date().getFullYear() - born) }</p>
